@@ -28,7 +28,7 @@ Sistema web desenvolvido em Python utilizando Dash para gestão de processos jur
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/AsimovAssociates.git
+   git clone https://github.com/devjogerio/AsimovAssociates.git
    cd AsimovAssociates
    ```
 
@@ -115,10 +115,7 @@ O projeto pode ser facilmente adaptado para outras plataformas como:
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 Contato
-
-Asimov Associates - [contato@asimov.com](mailto:contato@asimov.com)
-
-Link do Projeto: [https://github.com/seu-usuario/AsimovAssociates](https://github.com/seu-usuario/AsimovAssociates)
+Link do Projeto: [https://github.com/devjogerio/AsimovAssociates](https://github.com/devjogerio/AsimovAssociates)
 
 ## 🎯 Roadmap
 
