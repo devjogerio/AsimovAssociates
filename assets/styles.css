@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Variáveis de Cores */
+:root {
+  /* Tema Claro (Padrão) */
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f5f6fa;
+  --text-color: #2c3e50;
+  --card-background: #ffffff;
+  --hover-color: #2980b9;
+  --success-color: #27ae60;
+  --warning-color: #f1c40f;
+  --danger-color: #e74c3c;
+  --muted-color: #95a5a6;
+  --nav-hover-bg: rgba(52, 152, 219, 0.1);
+  --border-color: #e1e1e1;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover-color: rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme='dark'] {
+  /* Tema Escuro */
+  --primary-color: #4ea8e0;
+  --secondary-color: #2ecc71;
+  --background-color: #1a1d24;
+  --text-color: #e1e5eb;
+  --card-background: #242832;
+  --hover-color: #3498db;
+  --success-color: #2ecc71;
+  --warning-color: #f1c40f;
+  --danger-color: #e74c3c;
+  --muted-color: #a0a7b5;
+  --nav-hover-bg: rgba(78, 168, 224, 0.1);
+  --border-color: #2d3139;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-hover-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Transição Suave */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Background Geral */
+body {
+  background-color: var(--background-color);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+} 
+
+/* Theme Switch */
+.theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px auto;
+  padding: 8px;
+  background: var(--card-background);
+  border-radius: 20px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.theme-switch .custom-switch {
+  width: 3.5rem;
+  height: 2rem;
+  margin: 0;
+}
+
+.theme-switch .custom-switch .custom-control-label::before {
+  height: 2rem;
+  width: 3.5rem;
+  border-radius: 2rem;
+  background: linear-gradient(145deg, var(--card-background), var(--background-color));
+  border: 2px solid var(--primary-color);
+  box-shadow: inset 0 2px 4px var(--shadow-color);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-switch .custom-switch .custom-control-label::after {
+  height: calc(2rem - 12px);
+  width: calc(2rem - 12px);
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--primary-color), var(--hover-color));
+  box-shadow: 0 2px 4px var(--shadow-color);
+  cursor: pointer;
+  top: 6px;
+  left: 6px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-switch .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background: linear-gradient(145deg, var(--primary-color), var(--hover-color));
+  border-color: var(--hover-color);
+}
+
+.theme-switch .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background: linear-gradient(145deg, var(--card-background), var(--background-color));
+  transform: translateX(1.5rem);
+}
+
+.theme-switch .theme-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.theme-switch .theme-icons i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-switch .theme-icons i:hover {
+  transform: scale(1.2);
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Pills Color */
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  animation: pulse 1.5s infinite;
+}
+
+.nav-pills .nav-link {
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.nav-pills .nav-link:hover {
+  color: var(--hover-color);
+  background-color: var(--nav-hover-bg);
+  transform: scale(1.05);
+}
+
+/* Textos gerais */
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+  border: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 15px var(--shadow-hover-color);
+}
+
+/* Botões */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease-out, height 0.6s ease-out;
+}
+
+.btn:active::after {
+  width: 200%;
+  height: 200%;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-color);
+  border-color: var(--hover-color);
+  transform: translateY(-2px);
+  animation: pulse 1s;
+}
+
+.btn-search {
+  padding: 0.75rem;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+  transform: rotate(15deg);
+}
+
+.btn-action {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem var(--nav-hover-bg);
+  transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-color);
+  opacity: 0.8;
+}
+
+/* Dropdown */
+.Select-control {
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.Select-control:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Status Icons */
+.status-icon {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.status-icon.success {
+  color: var(--success-color);
+  animation: bounceIn 0.6s;
+}
+
+.status-icon.warning {
+  color: var(--warning-color);
+  animation: shake 0.8s;
+}
+
+.status-icon.danger {
+  color: var(--danger-color);
+  animation: shake 0.8s;
+}
+
+/* Checklist e Switch */
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  animation: scaleIn 0.3s;
+}
+
+/* Custom Nav */
+.custom-nav {
+  background-color: var(--nav-hover-bg);
+  padding: 15px;
+  border-radius: 12px;
+  animation: slideIn 0.5s ease-out;
+}
+
+.nav-link-custom {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.nav-link-custom:hover {
+  background-color: var(--nav-hover-bg);
+  color: var(--primary-color);
+  transform: translateX(10px);
+}
+
+.nav-link-custom.active {
+  background-color: var(--primary-color);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+/* Keyframes Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); }
+  50% { transform: scale(1.2); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.5); }
+  to { transform: scale(1); }
+}
